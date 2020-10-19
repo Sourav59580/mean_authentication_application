@@ -40,9 +40,9 @@ require('./config/passport')(passport);
 
 
 // Route
-app.get('/', (req, res) => {
-    res.send('hello')
-})
+// app.get('/', (req, res) => {
+//     res.send('hello')
+// })
 
 app.use('/user', require('./routes/user'))
 

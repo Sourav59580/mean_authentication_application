@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
         this._router.navigate(['/login']);
       }else{
         this._flashMessagesService.show("Something went wrong!!",{ cssClass: 'alert-danger' });
+        this._router.navigate(['/register']);
       }
     })
   }
