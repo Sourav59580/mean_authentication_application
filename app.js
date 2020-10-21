@@ -45,7 +45,9 @@ require('./config/passport')(passport);
 // })
 
 app.use('/user', require('./routes/user'))
-
+app.get('/student',(req,res)=>{
+   res.json({success: true});
+})
 
 
 
