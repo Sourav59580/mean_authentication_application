@@ -17,6 +17,9 @@ import { AuthService } from "./services/auth.service"
 
 import { FlashMessagesModule } from "angular2-flash-messages"
 
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,9 @@ import { FlashMessagesModule } from "angular2-flash-messages"
   ],
   providers: [
     ValidateService,
-    AuthService
+    AuthService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

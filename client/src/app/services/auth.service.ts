@@ -1,11 +1,13 @@
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 interface response {
   success: boolean;
   msg: string;
 }
+
 
 interface profile{
   user: {
@@ -37,7 +39,12 @@ export class AuthService {
   authToken: any;
   user: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,public jwtHelper: JwtHelperService) { }
+
+  public isAuthenticated(): boolean{
+    const token = localStorage.getItem("id_token");
+    return !this.jwtHelper.isTokenExpired(token);
+  }
 
   registerUser(user){
     let Header = new HttpHeaders();
